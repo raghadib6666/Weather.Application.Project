@@ -1,2 +1,10 @@
-package Weather.Application.service.interfaces;public interface LocationService {
+package Weather.Application.service.interfaces;
+
+import Weather.Application.entity.Location;
+
+import java.util.List;
+
+public interface LocationService {
+
+    public List<Location> getAllCourses();
 }
