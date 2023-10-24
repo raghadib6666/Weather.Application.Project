@@ -1,15 +1,18 @@
 package Weather.Application.entity;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 import java.util.Objects;
 import java.util.Set;
-
+@Table(name = "tbl_viewer")
+@Entity
 public class Viewer extends User{
 
 
-    @OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "viewer", fetch = FetchType.EAGER)
     private Set<Location> locations;
     private String role = "Admin";
 

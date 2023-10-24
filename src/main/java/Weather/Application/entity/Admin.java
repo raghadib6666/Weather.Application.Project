@@ -1,5 +1,10 @@
 package Weather.Application.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Table(name = "tbl_admin")
+@Entity
 public class Admin extends User{
 
     private String role = "Admin";

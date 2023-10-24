@@ -1,5 +1,6 @@
 package Weather.Application.entity;
 
+import jakarta.annotation.Generated;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -7,7 +8,9 @@ import java.util.Objects;
 @Entity
 @Table(name = "tbl_weather")
 public class Weather {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int weatherId;
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "City_location")
     Location location;

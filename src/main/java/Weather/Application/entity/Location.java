@@ -7,15 +7,17 @@ import java.util.*;
 public class Location {
 
 
-    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "location", fetch = FetchType.EAGER)
     private Set<Weather> weather;
 
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "View")
-    Viewer viewer;
+    @JoinColumn(name = "viewer_id")
+    private Viewer viewer;
 
     // I will use the City to be my ID because it's already unique!
+
     @Id
+    private String locationId;
     private String City;
     private Date date;
     private double latitude;
@@ -25,13 +27,15 @@ public class Location {
     public Location() {
     }
 
-    public Location(String city, Date date, double latitude, double longitude) {
+    public Location(Set<Weather> weather, Viewer viewer, String locationId, String city, Date date, double latitude, double longitude) {
+        this.weather = weather;
+        this.viewer = viewer;
+        this.locationId = locationId;
         City = city;
         this.date = date;
         this.latitude = latitude;
         this.longitude = longitude;
     }
-
 
     // Getter and Setter for City:
     public String getCity() {
@@ -69,10 +73,21 @@ public class Location {
         this.longitude = longitude;
     }
 
+    public String getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(String locationId) {
+        this.locationId = locationId;
+    }
+
     @Override
     public String toString() {
         return "Location{" +
-                " City='" + City + '\'' +
+                "weather=" + weather +
+                ", viewer=" + viewer +
+                ", locationId=" + locationId +
+                ", City='" + City + '\'' +
                 ", date=" + date +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
@@ -84,14 +99,13 @@ public class Location {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Location location = (Location) o;
-        return Double.compare(latitude, location.latitude) == 0 && Double.compare(longitude, location.longitude) == 0 && Objects.equals(weather, location.weather) && Objects.equals(City, location.City) && Objects.equals(date, location.date);
+        return locationId == location.locationId && Double.compare(latitude, location.latitude) == 0 && Double.compare(longitude, location.longitude) == 0 && Objects.equals(weather, location.weather) && Objects.equals(viewer, location.viewer) && Objects.equals(City, location.City) && Objects.equals(date, location.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(weather, City, date, latitude, longitude);
+        return Objects.hash(weather, viewer, locationId, City, date, latitude, longitude);
     }
-
 
     public void FindCityName(String City) {
         String cityName = getCityName(latitude, longitude);

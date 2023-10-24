@@ -4,6 +4,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "tbl_user")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 
     @Id
