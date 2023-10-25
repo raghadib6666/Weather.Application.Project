@@ -14,3 +14,12 @@ retrieve weather details, and stay informed about temperature, humidity, wind Sp
 1) Clone the repository.
 2) Configure your database settings in application.properties.
 3) Run the application.
+
+## Technologies Used:
+
+1) Jakarta Persistence API (JPA).
+2) Spring Boot.
+3) Spring Data JPA.
+4) MySQL Workbench.
+5) IntelliJ IDEA Community Edition.
+
