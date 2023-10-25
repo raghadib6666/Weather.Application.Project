@@ -5,15 +5,23 @@ locations. With a focus on simplicity and efficiency, viewers can manage their l
 retrieve weather details, and stay informed about temperature, humidity, wind Speed, and conditions!
 
 
+
+
 ## Class Diagram:
 
 ![myWeatherApp drawio](https://github.com/raghadib6666/Weather.Application.Project/assets/145933448/e42b92a8-e28e-42d1-93eb-466d2ac56868)
+
+
+
 
 ## Setup:
 
 1) Clone the repository.
 2) Configure your database settings in application.properties.
 3) Run the application.
+
+
+
 
 ## Technologies Used:
 
@@ -22,6 +30,9 @@ retrieve weather details, and stay informed about temperature, humidity, wind Sp
 3) Spring Data JPA.
 4) MySQL Workbench.
 5) IntelliJ IDEA Community Edition.
+
+
+
 
 ## Controllers and Routes Structure:
 
@@ -48,12 +59,18 @@ retrieve weather details, and stay informed about temperature, humidity, wind Sp
 
 **Note: Replace {locationId} and {weatherId} with the actual IDs when making requests.**
 
+
+
+
 ## Extra Links:
 
-**Trello**
+**Trello** <br>
 https://trello.com/b/uN5zGpiG/weather-application
 
 **Presentation Slides**
+
+
+
 
 ## Future Work:
 
@@ -67,3 +84,8 @@ Extend the application to store and provide historical weather data. Implement f
 Integrate a notification system to alert users about conditions weather changes or updates for their specified locations. This could include email alerts, push notifications, or SMS notifications.
 
 
+
+
+## Resources:
+
+https://github.com/raneemr05/springdatajpa
