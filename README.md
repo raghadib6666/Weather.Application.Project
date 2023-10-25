@@ -33,3 +33,17 @@ retrieve weather details, and stay informed about temperature, humidity, wind Sp
 - Update Location: 'PUT /location/update/{locationId}'
 - Partial Update Location: 'PATCH /location/PatchUpdate/{locationId}'
 
+**Viewer Controller**
+
+- Add Viewer: 'POST /viewer/add'
+
+**Weather Controller**
+
+- Get All Weathers: 'GET /weather'
+- Add Weather: 'POST /weathers/add'
+- Delete Weather: 'DELETE /weather/delete/{weatherId}'
+- Update Weather: 'PUT /weather/update/{weatherId}'
+- Partial Update Weather: 'PATCH /weather/PatchUpdate/{weatherId}'
+
+
+**Note: Replace {locationId} and {weatherId} with the actual IDs when making requests.**
