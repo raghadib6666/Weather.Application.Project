@@ -10,7 +10,6 @@ public interface LocationService {
 
     public Location addLocation(Location location);
 
-    // not working
     String deleteLocation(String locationId);
 
     String updateLocation(String locationId, Location location);

@@ -1,6 +1,5 @@
 package Weather.Application.entity;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -10,8 +9,8 @@ import java.util.Objects;
 public class Weather {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int weatherId;
-    @ManyToOne (fetch = FetchType.LAZY)
+    private Integer weatherId;
+    @ManyToOne
     @JoinColumn(name = "City_location")
     Location location;
     private int humidity;
@@ -28,6 +27,14 @@ public class Weather {
         this.windSpeed = windSpeed;
         this.conditions = conditions;
         this.temperature = temperature;
+    }
+
+    public int getWeatherId() {
+        return weatherId;
+    }
+
+    public void setWeatherId(int weatherId) {
+        this.weatherId = weatherId;
     }
 
     public Location getLocation() {
@@ -75,18 +82,19 @@ public class Weather {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Weather weather = (Weather) o;
-        return humidity == weather.humidity && Double.compare(windSpeed, weather.windSpeed) == 0 && Double.compare(temperature, weather.temperature) == 0 && Objects.equals(location, weather.location) && Objects.equals(conditions, weather.conditions);
+        return weatherId == weather.weatherId && humidity == weather.humidity && Double.compare(windSpeed, weather.windSpeed) == 0 && Double.compare(temperature, weather.temperature) == 0 && Objects.equals(location, weather.location) && Objects.equals(conditions, weather.conditions);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(location, humidity, windSpeed, conditions, temperature);
+        return Objects.hash(weatherId, location, humidity, windSpeed, conditions, temperature);
     }
 
     @Override
     public String toString() {
         return "Weather{" +
-                "location=" + location +
+                "weatherId=" + weatherId +
+                ", location=" + location +
                 ", humidity=" + humidity +
                 ", windSpeed=" + windSpeed +
                 ", conditions='" + conditions + '\'' +

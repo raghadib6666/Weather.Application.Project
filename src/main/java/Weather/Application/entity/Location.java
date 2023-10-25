@@ -1,25 +1,26 @@
 package Weather.Application.entity;
 import jakarta.persistence.*;
+
+
 import java.util.*;
 
 @Entity
 @Table(name = "tbl_location")
+
 public class Location {
 
 
-    @OneToMany(mappedBy = "location", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "location")
     private Set<Weather> weather;
 
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "viewer_id")
+    @ManyToOne
+    @JoinColumn(name = "viewer")
     private Viewer viewer;
 
-    // I will use the City to be my ID because it's already unique!
-
     @Id
-    private String locationId;
-    private String City;
-    private Date date;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer locationId;
+    private String city;
     private double latitude;
     private double longitude;
 
@@ -27,37 +28,41 @@ public class Location {
     public Location() {
     }
 
-    public Location(Set<Weather> weather, Viewer viewer, String locationId, String city, Date date, double latitude, double longitude) {
-        this.weather = weather;
-        this.viewer = viewer;
-        this.locationId = locationId;
-        City = city;
-        this.date = date;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
+
+
+//    public String generateLocation() {
+//        // Generate a unique ID when a new Location object is created
+//        return UUID.randomUUID().toString();
+//    }
 
     // Getter and Setter for City:
+
+    public Set<Weather> getWeather() {
+        return weather;
+    }
+
+    public void setWeather(Set<Weather> weather) {
+        this.weather = weather;
+    }
+
+    public Viewer getViewer() {
+        return viewer;
+    }
+
+    public void setViewer(Viewer viewer) {
+        this.viewer = viewer;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
-    }
-
-    // Getter and Setter for Date:
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    // Getter and Setter for latitude:
-    public double getLatitude() {
-        return latitude;
+        this.city = city;
     }
 
     public void setLatitude(double latitude) {
@@ -73,25 +78,12 @@ public class Location {
         this.longitude = longitude;
     }
 
-    public String getLocationId() {
+    public Integer getLocationId() {
         return locationId;
     }
 
-    public void setLocationId(String locationId) {
+    public void setLocationId(Integer locationId) {
         this.locationId = locationId;
-    }
-
-    @Override
-    public String toString() {
-        return "Location{" +
-                "weather=" + weather +
-                ", viewer=" + viewer +
-                ", locationId=" + locationId +
-                ", City='" + City + '\'' +
-                ", date=" + date +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                '}';
     }
 
     @Override
@@ -99,17 +91,24 @@ public class Location {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Location location = (Location) o;
-        return locationId == location.locationId && Double.compare(latitude, location.latitude) == 0 && Double.compare(longitude, location.longitude) == 0 && Objects.equals(weather, location.weather) && Objects.equals(viewer, location.viewer) && Objects.equals(City, location.City) && Objects.equals(date, location.date);
+        return Double.compare(latitude, location.latitude) == 0 && Double.compare(longitude, location.longitude) == 0 && Objects.equals(weather, location.weather) && Objects.equals(viewer, location.viewer) && Objects.equals(locationId, location.locationId) && Objects.equals(city, location.city);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(weather, viewer, locationId, City, date, latitude, longitude);
+        return Objects.hash(weather, viewer, locationId, city, latitude, longitude);
     }
 
-    public void FindCityName(String City) {
-        String cityName = getCityName(latitude, longitude);
-        System.out.println("City: " + City);
+    @Override
+    public String toString() {
+        return "Location{" +
+                "weather=" + weather +
+                ", viewer=" + viewer +
+                ", locationId='" + locationId + '\'' +
+                ", City='" + city + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
     }
 
     public static String getCityName(double latitude, double longitude) {

@@ -44,7 +44,7 @@ public class LocationServiceImpl implements LocationService {
         Location existingLocation = locationFound.get();
 
             if (updates.containsKey("City")){
-                existingLocation.setLocationId((String) updates.get("location ID"));
+                existingLocation.setLocationId((Integer) updates.get("location ID"));
             }
 
             locationRepository.save(existingLocation);

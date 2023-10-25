@@ -30,7 +30,7 @@ private LocationServiceImpl locationService;
 
 //  post method to add new location
     @PostMapping("/locations/add")
-    public ResponseEntity<String> addLocation(@RequestBody @Valid Location location) {
+    public ResponseEntity<String> addLocation(@RequestBody Location location) {
         try {
             Location savedLocation = locationService.addLocation(location);
             String message = "Location added successfully!";
@@ -63,6 +63,4 @@ private LocationServiceImpl locationService;
 
         return locationService.partialUpdateLocation(locationId, updates);
     }
-
-
 }

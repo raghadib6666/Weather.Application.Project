@@ -12,9 +12,9 @@ import java.util.Set;
 public class Viewer extends User{
 
 
-    @OneToMany(mappedBy = "viewer", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "viewer")
     private Set<Location> locations;
-    private String role = "Admin";
+    private String role = "Viewer";
 
     public Viewer() {
     }
