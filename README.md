@@ -8,3 +8,9 @@ retrieve weather details, and stay informed about temperature, humidity, wind Sp
 ## Class Diagram:
 
 ![myWeatherApp drawio](https://github.com/raghadib6666/Weather.Application.Project/assets/145933448/e42b92a8-e28e-42d1-93eb-466d2ac56868)
+
+## Setup:
+
+1) Clone the repository.
+2) Configure your database settings in application.properties.
+3) Run the application.
