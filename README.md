@@ -47,3 +47,23 @@ retrieve weather details, and stay informed about temperature, humidity, wind Sp
 
 
 **Note: Replace {locationId} and {weatherId} with the actual IDs when making requests.**
+
+## Extra Links:
+
+**Trello**
+https://trello.com/b/uN5zGpiG/weather-application
+
+**Presentation Slides**
+
+## Future Work:
+
+**User Interface (UI):**
+Develop a user-friendly web interface or mobile app to allow users to interact with the application visually. Use modern frontend frameworks like React or Angular for a responsive and dynamic user experience.
+
+**Historical Weather Data:**
+Extend the application to store and provide historical weather data. Implement features to allow users to view past weather conditions for specific locations.
+
+**Notifications and Alerts:**
+Integrate a notification system to alert users about conditions weather changes or updates for their specified locations. This could include email alerts, push notifications, or SMS notifications.
+
+
