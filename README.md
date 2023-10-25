@@ -64,8 +64,8 @@ retrieve weather details, and stay informed about temperature, humidity, wind Sp
 
 ## Extra Links:
 
-**Trello** <br>
-https://trello.com/b/uN5zGpiG/weather-application
+**Trello**
+<br> https://trello.com/b/uN5zGpiG/weather-application
 
 **Presentation Slides**
 
