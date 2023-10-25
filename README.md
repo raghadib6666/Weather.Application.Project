@@ -23,3 +23,13 @@ retrieve weather details, and stay informed about temperature, humidity, wind Sp
 4) MySQL Workbench.
 5) IntelliJ IDEA Community Edition.
 
+## Controllers and Routes Structure:
+
+- Location Controller -
+  
+- Get All Locations: 'GET /locations'
+- Add Location: 'POST /locations/add'
+- Delete Location: 'DELETE /location/delete/{locationId}'
+- Update Location: 'PUT /location/update/{locationId}'
+- Partial Update Location: 'PATCH /location/PatchUpdate/{locationId}'
+
