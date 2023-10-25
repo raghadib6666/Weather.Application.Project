@@ -25,7 +25,7 @@ retrieve weather details, and stay informed about temperature, humidity, wind Sp
 
 ## Controllers and Routes Structure:
 
-- Location Controller -
+**Location Controller** 
   
 - Get All Locations: 'GET /locations'
 - Add Location: 'POST /locations/add'
