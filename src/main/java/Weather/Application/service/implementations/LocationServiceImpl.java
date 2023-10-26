@@ -24,7 +24,6 @@ public class LocationServiceImpl implements LocationService {
         return locationRepository.save(location);
     }
 
-    // set city
     @Override
     public String updateLocation(String locationId, Location location) {
         Optional<Location> locationFound = locationRepository.findById(locationId);

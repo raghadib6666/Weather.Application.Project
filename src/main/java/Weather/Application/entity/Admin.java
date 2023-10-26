@@ -7,15 +7,25 @@ import jakarta.persistence.Table;
 @Entity
 public class Admin extends User{
 
+    private String password;
     private String role = "Admin";
 
 
     public Admin() {
     }
 
-    public Admin(String user_name, String role) {
+    public Admin(String user_name, String password, String role) {
         super(user_name);
+        this.password = password;
         this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getRole() {

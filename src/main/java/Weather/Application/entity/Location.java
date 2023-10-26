@@ -30,13 +30,6 @@ public class Location {
 
 
 
-//    public String generateLocation() {
-//        // Generate a unique ID when a new Location object is created
-//        return UUID.randomUUID().toString();
-//    }
-
-    // Getter and Setter for City:
-
     public Set<Weather> getWeather() {
         return weather;
     }
@@ -69,7 +62,6 @@ public class Location {
         this.latitude = latitude;
     }
 
-    // Getter and Setter for longitude:
     public double getLongitude() {
         return longitude;
     }
@@ -111,15 +103,32 @@ public class Location {
                 '}';
     }
 
-    public static String getCityName(double latitude, double longitude) {
-        if (latitude == 24.774 && longitude == 46.738) {
-            return "Riyadh";
-        } else if (latitude == 51.509 && longitude == 0.118) {
-            return "London";
-        } else if (latitude == 45.464 && longitude == 9.188) {
-            return "Milan";
+    public static String getCityName(double latitude, double longitude) throws InvalidCoordinatesException {
+        if (isValidCoordinates(latitude, longitude)) {
+            if (latitude == 24.774 && longitude == 46.738) {
+                return "Riyadh";
+            } else if (latitude == 51.509 && longitude == 0.118) {
+                return "London";
+            } else if (latitude == 45.464 && longitude == 9.188) {
+                return "Milan";
+            } else {
+                return "City not found";
+            }
         } else {
-            return "City not found";
+            throw new InvalidCoordinatesException("Invalid");
         }
+    }
+
+    private static boolean isValidCoordinates(double latitude, double longitude) {
+        // Validate latitude and longitude ranges
+        return isValidLatitude(latitude) && isValidLongitude(longitude);
+    }
+
+    private static boolean isValidLongitude(double longitude) {
+        return longitude >= -180 && longitude <= 180;
+    }
+
+    private static boolean isValidLatitude(double latitude) {
+        return latitude >= -90 && latitude <= 90;
     }
 }

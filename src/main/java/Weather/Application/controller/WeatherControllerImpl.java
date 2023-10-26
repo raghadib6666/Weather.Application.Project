@@ -1,8 +1,6 @@
 package Weather.Application.controller;
 
-import Weather.Application.entity.Location;
 import Weather.Application.entity.Weather;
-import Weather.Application.service.implementations.LocationServiceImpl;
 import Weather.Application.service.implementations.WeatherServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

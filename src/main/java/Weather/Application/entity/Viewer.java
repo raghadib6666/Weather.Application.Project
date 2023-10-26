@@ -13,7 +13,7 @@ public class Viewer extends User{
 
 
     @OneToMany(mappedBy = "viewer")
-    private Set<Location> locations;
+    private Set<Location> location;
     private String role = "Viewer";
 
     public Viewer() {
